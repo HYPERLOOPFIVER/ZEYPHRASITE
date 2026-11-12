@@ -180,12 +180,13 @@ function HomePage({ onBeta }) {
 
       <section className="capabilities-section" id="capabilities" aria-labelledby="capabilities-title">
         <div className="section-shell capabilities-layout">
-          <div className="capabilities-intro"><p className="eyebrow">WHAT ELLO CAN HELP WITH</p><h2 id="capabilities-title">A goal in mind.<br />A little help<br /><em>getting there.</em></h2></div>
+          <div className="capabilities-intro"><p className="eyebrow">YOUR HELPER, READY</p><h2 id="capabilities-title">Give me a goal.<br /><em>I’ll give it a go.</em></h2><p className="capabilities-promise">Big job or little job, I’ll take it one step at a time. If it gets tricky, I’ll keep trying and ask you when I need a hand.</p></div>
           <div className="capabilities-list">
-            <article><span>01</span><div><h3>Make a plan</h3><p>Tell Ello what you want to get done. It can break the goal into clear next steps.</p></div></article>
-            <article><span>02</span><div><h3>Handle online tasks</h3><p>Get help with trip planning, flight bookings, emails, and other everyday tasks on the web.</p></div></article>
-            <article><span>03</span><div><h3>Remember what matters</h3><p>Ello can use details and preferences you share to make future help more personal.</p></div></article>
-            <article><span>04</span><div><h3>Keep you in control</h3><p>Ello checks with you before important actions, so you can review and decide.</p></div></article>
+            <article><span>01</span><div><h3>Shop for you</h3><p>Tell me what you need. I can look around and help find it.</p></div></article>
+            <article><span>02</span><div><h3>Plan a trip</h3><p>I can help plan your getaway, from the first idea to booking.</p></div></article>
+            <article><span>03</span><div><h3>Make movie night easy</h3><p>I can find a movie and help book your tickets.</p></div></article>
+            <article><span>04</span><div><h3>Keep an eye on prices</h3><p>I can watch for a price change and let you know.</p></div></article>
+            <article><span>05</span><div><h3>Handle the boring bits</h3><p>Forms, hotel calls, customer service—I can help take those on, too.</p></div></article>
           </div>
         </div>
       </section>

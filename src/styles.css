@@ -96,7 +96,9 @@ h1 em, h2 em { color: inherit; font-style: normal; font-weight: 510; }
 .capabilities-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(48px, 9vw, 132px); align-items: start; }
 .capabilities-intro { position: sticky; top: 130px; }
 .capabilities-intro .eyebrow { margin-bottom: 20px; }
-.capabilities-intro h2 { font-size: clamp(50px, 5.6vw, 76px); font-weight: 560; }
+.capabilities-intro h2 { font-size: clamp(54px, 5.8vw, 80px); font-weight: 590; }
+.capabilities-intro h2 em { color: #ed694d; }
+.capabilities-promise { max-width: 370px; margin: 23px 0 0; color: var(--body); font-size: 14px; line-height: 1.75; }
 .capabilities-list { border-top: 1px solid #dedfdb; }
 .capabilities-list article { min-height: 110px; display: grid; grid-template-columns: 40px 1fr; gap: 18px; align-items: center; padding-block: 20px; border-bottom: 1px solid #dedfdb; }
 .capabilities-list article > span { align-self: start; padding-top: 5px; color: #858983; font-size: 10px; }
@@ -255,7 +257,8 @@ h2 { margin-bottom: 0; font-size: clamp(48px, 5.2vw, 70px); }
   .task-showcase-copy > p:last-child { font-size: 13px; }
   .capabilities-layout { grid-template-columns: 1fr; gap: 38px; }
   .capabilities-intro { position: static; }
-  .capabilities-intro h2 { font-size: 56px; }
+  .capabilities-intro h2 { font-size: 59px; }
+  .capabilities-promise { margin-top: 17px; font-size: 13px; }
   .capabilities-list article { min-height: 100px; }
   .capabilities-list h3 { font-size: 17px; }
   .capabilities-list p { font-size: 12px; }
