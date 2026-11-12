@@ -48,7 +48,7 @@ function Header({ business, onBeta }) {
         </div>
       </nav>
       {business
-        ? <a className="nav-cta" href="mailto:hello@zeyphra.com?subject=ZEYPHRA%20business%20inquiry">GET ELLO FOR BUSINESS <span aria-hidden="true">↗</span></a>
+        ? <a className="nav-cta" href="mailto:hello@zeyphra.com?subject=Ello%20download%20request">Download <span aria-hidden="true">↗</span></a>
         : <button className="nav-cta" onClick={onBeta}>Join the beta <span aria-hidden="true">↗</span></button>}
     </div>
   </header>;
