@@ -85,6 +85,13 @@ h1 em, h2 em { color: inherit; font-style: normal; font-weight: 510; }
 .visual-overline { max-width: 760px; margin: 0 auto 11px; padding: 0 3px; }
 .hero-video-frame { position: relative; width: 100%; overflow: hidden; border-radius: 30px 30px 0 0; background: #111; }
 .hero-video { width: 100%; height: auto; display: block; }
+.task-showcase { padding-block: 112px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(36px, 7vw, 100px); align-items: center; }
+.task-showcase-media { overflow: hidden; aspect-ratio: 16 / 10; border-radius: 18px; background: #f0f1ee; }
+.task-showcase-video { width: 100%; height: 100%; display: block; object-fit: cover; }
+.task-showcase-copy { max-width: 550px; }
+.task-showcase-copy .eyebrow { margin-bottom: 20px; }
+.task-showcase-copy h2 { margin-bottom: 21px; font-size: clamp(42px, 4.8vw, 64px); }
+.task-showcase-copy > p:last-child { max-width: 490px; margin: 0; color: var(--body); font-size: 15px; line-height: 1.75; }
 .ello-demo { width: min(100%, 760px); min-height: 153px; margin-inline: auto; padding: 18px 22px 11px; border: 1px solid #e4e5e1; border-radius: 18px; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,.018); }
 .demo-top { display: flex; align-items: center; justify-content: space-between; }
 .sample-label, .demo-status { display: flex; align-items: center; gap: 7px; color: #777b76; font-size: 8px; font-weight: 600; letter-spacing: .08em; }
@@ -210,6 +217,7 @@ h2 { margin-bottom: 0; font-size: clamp(48px, 5.2vw, 70px); }
   .home-hero .hero-visual { width: 80vw; }
   .how-layout { gap: 55px; }
   .trust-section { gap: 55px; }
+  .task-showcase { gap: 45px; padding-block: 90px; }
 }
 @media (max-width: 760px) {
   .page-shell, .section-shell { width: calc(100% - 44px); }
@@ -230,6 +238,10 @@ h2 { margin-bottom: 0; font-size: clamp(48px, 5.2vw, 70px); }
   .hero-description { max-width: 570px; font-size: 14px; }
   .hero-visual { margin-top: 43px; }
   .hero-baseline { bottom: 21px; }
+  .task-showcase { grid-template-columns: 1fr; gap: 27px; padding-block: 76px; }
+  .task-showcase-copy { max-width: 620px; }
+  .task-showcase-copy h2 { font-size: 54px; }
+  .task-showcase-copy > p:last-child { font-size: 13px; }
   .editorial-section { padding-block: 84px 70px; }
   .editorial-intro { grid-template-columns: 1fr; gap: 18px; }
   .editorial-intro .eyebrow { margin-bottom: 0; }
@@ -283,6 +295,10 @@ h2 { margin-bottom: 0; font-size: clamp(48px, 5.2vw, 70px); }
   .quiet-link { font-size: 10px; }
   .hero-visual { margin-top: 36px; }
   .hero-video-frame { border-radius: 22px 22px 0 0; }
+  .task-showcase { gap: 22px; padding-block: 64px; }
+  .task-showcase-media { border-radius: 14px; }
+  .task-showcase-copy h2 { font-size: 43px; }
+  .task-showcase-copy > p:last-child { font-size: 12px; }
   .ello-demo { min-height: 134px; padding: 14px 14px 9px; border-radius: 15px; }
   .visual-overline { font-size: 6px; }
   .sample-label, .demo-status { font-size: 6px; }

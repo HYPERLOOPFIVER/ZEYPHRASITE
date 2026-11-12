@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Magnet from './components/Magnet.jsx';
 import elloAnimation from '../waving hi ello.mp4';
+import taskAnimation from '../ELLO X GMAIL AND CONNECTIONS.mp4';
 
 function Brand() {
   return <a className="brand" href="/" aria-label="ZEYPHRA home">ZEYPHRA</a>;
@@ -136,6 +137,30 @@ function HeroAnimation() {
   </div>;
 }
 
+function TaskAnimation() {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const syncPlayback = () => {
+      if (motionPreference.matches) {
+        video.pause();
+        return;
+      }
+      video.play().catch(() => {});
+    };
+    syncPlayback();
+    motionPreference.addEventListener('change', syncPlayback);
+    return () => {
+      motionPreference.removeEventListener('change', syncPlayback);
+      video.pause();
+    };
+  }, []);
+
+  return <video ref={videoRef} className="task-showcase-video" src={taskAnimation} muted loop playsInline preload="metadata" aria-hidden="true" />;
+}
+
 function HomePage({ onBeta }) {
   return <>
     <Header onBeta={onBeta} />
@@ -143,6 +168,15 @@ function HomePage({ onBeta }) {
       <section className="home-hero page-shell">
         <h1 className="hero-headline">A little helper who listens to you,<br className="headline-break" /> remembers what you like,<br className="headline-break" /> and gets things done for you.</h1>
         <div className="hero-visual"><HeroAnimation /></div>
+      </section>
+
+      <section className="task-showcase section-shell" aria-labelledby="task-showcase-title">
+        <div className="task-showcase-media"><TaskAnimation /></div>
+        <div className="task-showcase-copy">
+          <p className="eyebrow">HERE FOR THE THINGS ON YOUR LIST</p>
+          <h2 id="task-showcase-title">Trips, emails,<br />and everything between.</h2>
+          <p>I can help book flights, plan trips, send emails, and handle other tasks online. Tell me what you need, and I’ll work through it with you.</p>
+        </div>
       </section>
 
       <section className="editorial-section use-cases" id="what-ello-does">
