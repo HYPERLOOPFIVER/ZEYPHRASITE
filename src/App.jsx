@@ -42,9 +42,8 @@ function Header({ business, onBeta }) {
             PRODUCTS <svg aria-hidden="true" viewBox="0 0 12 12"><path d="m2.5 4.5 3.5 3 3.5-3" /></svg>
           </button>
           <div className="products-menu" id="products-menu" role="group" aria-label="Products" hidden={!productsOpen}>
-            <a href="/#what-ello-does" onClick={() => setProductsOpen(false)}>Everyday tasks <span>↗</span></a>
-            <a href="/#how-it-works" onClick={() => setProductsOpen(false)}>How Ello works <span>↗</span></a>
-            <a href="/#your-control" onClick={() => setProductsOpen(false)}>Your control <span>↗</span></a>
+            <a href="/#task-showcase-title" onClick={() => setProductsOpen(false)}>Goal-based help <span>↗</span></a>
+            <a href="/#capabilities" onClick={() => setProductsOpen(false)}>Capabilities <span>↗</span></a>
           </div>
         </div>
       </nav>
@@ -179,28 +178,17 @@ function HomePage({ onBeta }) {
         </div>
       </section>
 
-      <section className="editorial-section use-cases" id="what-ello-does">
-        <div className="section-shell editorial-intro"><p className="eyebrow">THE SMALL THINGS ADD UP</p><h2>Make a request.<br />Get back to <em>your day.</em></h2><p className="section-lede">A lot of daily life happens across apps and websites. Ello helps with the digital errands in between.</p></div>
-        <div className="request-list section-shell">
-          <a href="#how-it-works"><span className="request-index">01</span><span className="request-tag">FOOD & GROCERIES</span><span className="request-copy">“Get the ingredients for this recipe.”</span><span className="request-arrow" aria-hidden="true">↗</span></a>
-          <a href="#how-it-works"><span className="request-index">02</span><span className="request-tag">GETTING AROUND</span><span className="request-copy">“Get me to the airport by six.”</span><span className="request-arrow" aria-hidden="true">↗</span></a>
-          <a href="#how-it-works"><span className="request-index">03</span><span className="request-tag">LIFE ADMIN</span><span className="request-copy">“Help me take care of this form.”</span><span className="request-arrow" aria-hidden="true">↗</span></a>
-        </div>
-        <p className="section-footnote section-shell">Examples are illustrative. What Ello can do depends on the task and the services involved.</p>
-      </section>
-
-      <section className="how-section" id="how-it-works">
-        <div className="section-shell how-layout"><div className="how-intro"><p className="eyebrow">A CLEARER WAY TO GET THINGS DONE</p><h2>You ask.<br />Ello works.<br /><em>You decide.</em></h2><p>Simple on purpose. You stay part of the process from the first request to the final approval.</p></div>
-          <div className="how-steps"><article><span>01</span><div><h3>Say what you need</h3><p>Describe the task in your own words, by text or voice.</p></div><span className="step-mark">↗</span></article><article><span>02</span><div><h3>Ello makes a plan</h3><p>It works through the steps and gets the details ready.</p></div><span className="step-mark">↗</span></article><article><span>03</span><div><h3>You review what matters</h3><p>Ello asks for your approval before important actions.</p></div><span className="step-mark">✓</span></article></div>
+      <section className="capabilities-section" id="capabilities" aria-labelledby="capabilities-title">
+        <div className="section-shell capabilities-layout">
+          <div className="capabilities-intro"><p className="eyebrow">WHAT ELLO CAN HELP WITH</p><h2 id="capabilities-title">A goal in mind.<br />A little help<br /><em>getting there.</em></h2></div>
+          <div className="capabilities-list">
+            <article><span>01</span><div><h3>Make a plan</h3><p>Tell Ello what you want to get done. It can break the goal into clear next steps.</p></div></article>
+            <article><span>02</span><div><h3>Handle online tasks</h3><p>Get help with trip planning, flight bookings, emails, and other everyday tasks on the web.</p></div></article>
+            <article><span>03</span><div><h3>Remember what matters</h3><p>Ello can use details and preferences you share to make future help more personal.</p></div></article>
+            <article><span>04</span><div><h3>Keep you in control</h3><p>Ello checks with you before important actions, so you can review and decide.</p></div></article>
+          </div>
         </div>
       </section>
-
-      <section className="trust-section section-shell" id="your-control">
-        <div className="trust-heading"><p className="eyebrow">HELPFUL, ON YOUR TERMS</p><h2>Useful should<br />still feel <em>like yours.</em></h2></div>
-        <div className="trust-copy"><p>Ello is designed to take on repetitive digital steps without taking you out of the loop.</p><ul><li><span>01</span><div><b>You approve important actions</b><p>Ello checks in before decisions that need your say.</p></div></li><li><span>02</span><div><b>Tasks have a dedicated space</b><p>Ello’s tasks run in an isolated browser environment.</p></div></li><li><span>03</span><div><b>Sensitive details stay close</b><p>ZEYPHRA’s hybrid AI design keeps sensitive personal information on your device.</p></div></li></ul></div>
-      </section>
-
-      <section className="closing-cta"><div className="section-shell closing-content"><p className="eyebrow">WHEN YOU’RE READY</p><h2>Let the little things<br />take a little <em>less.</em></h2><ButtonLink onClick={onBeta} light>Join the beta</ButtonLink><span className="closing-mark" aria-hidden="true">z</span></div></section>
     </main>
     <Footer onBeta={onBeta} />
   </>;
