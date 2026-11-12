@@ -173,9 +173,9 @@ function HomePage({ onBeta }) {
       <section className="task-showcase section-shell" aria-labelledby="task-showcase-title">
         <div className="task-showcase-media"><TaskAnimation /></div>
         <div className="task-showcase-copy">
-          <p className="eyebrow">HERE FOR THE THINGS ON YOUR LIST</p>
-          <h2 id="task-showcase-title">Trips, emails,<br />and everything between.</h2>
-          <p>I can help book flights, plan trips, send emails, and handle other tasks online. Tell me what you need, and I’ll work through it with you.</p>
+          <p className="eyebrow">FROM A GOAL TO DONE</p>
+          <h2 id="task-showcase-title">I can.</h2>
+          <p>Give me a goal, and I’ll work through the steps to help get it done. I can book flights, plan trips, send emails, and take care of other tasks online.</p>
         </div>
       </section>
 
