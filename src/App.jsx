@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import Magnet from './components/Magnet.jsx';
+import BusinessLanding from './BusinessLanding.jsx';
 import elloAnimation from '../waving hi ello.mp4';
 import taskAnimation from '../ELLO X GMAIL AND CONNECTIONS.mp4';
 
@@ -195,39 +196,8 @@ function HomePage({ onBeta }) {
   </>;
 }
 
-function WorkflowVisual() {
-  return <div className="business-visual" role="img" aria-label="A workflow illustration: the team sets the process, an agent handles repeatable steps, and people make the final call.">
-    <div className="biz-visual-top"><span>ONE WORKFLOW, THREE PARTS</span><span>ZEYPHRA / 01</span></div>
-    <div className="workflow-track">
-      <div className="workflow-item"><span className="workflow-count">01</span><span className="workflow-symbol human">P</span><div><b>Your team sets the context</b><small>People know the work best.</small></div><span className="workflow-role">PEOPLE</span></div>
-      <span className="workflow-connector" />
-      <div className="workflow-item agent"><span className="workflow-count">02</span><span className="workflow-symbol">e</span><div><b>An agent handles repeatable steps</b><small>Designed around your process.</small></div><span className="workflow-role">AGENT</span></div>
-      <span className="workflow-connector" />
-      <div className="workflow-item"><span className="workflow-count">03</span><span className="workflow-symbol review">✓</span><div><b>A person reviews what matters</b><small>Your team decides what’s next.</small></div><span className="workflow-role">REVIEW</span></div>
-    </div>
-    <div className="biz-visual-bottom"><span>SHAPED AROUND YOUR TEAM</span><span>HUMAN JUDGMENT INCLUDED</span></div>
-  </div>;
-}
-
-function BusinessPage() {
-  return <>
-    <Header business />
-    <main id="main">
-      <section className="business-hero page-shell">
-        <div className="hero-copy"><p className="eyebrow"><span className="eyebrow-dot" /> ZEYPHRA FOR BUSINESS</p><h1>Good work<br />shouldn’t get<br /><span className="serif-line">lost in <em>busywork.</em></span></h1><p className="hero-description">ZEYPHRA builds custom AI agents around your company’s workflows, helping teams spend less time on repeatable steps and more time on the work that needs them.</p><div className="hero-cta-row"><ButtonLink href="mailto:hello@zeyphra.com?subject=ZEYPHRA%20business%20inquiry">Talk to ZEYPHRA</ButtonLink><a className="quiet-link" href="#approach">Our approach <span aria-hidden="true">↓</span></a></div><p className="quiet-proof"><span aria-hidden="true">✳</span> Grounded in the way your team already works.</p></div>
-        <div className="hero-visual business-hero-visual"><WorkflowVisual /></div>
-        <div className="hero-baseline"><span>CUSTOM AGENTS FOR COMPANY WORKFLOWS</span><span>SCROLL TO EXPLORE&nbsp; ↓</span></div>
-      </section>
-      <section className="business-statement"><div className="section-shell statement-grid"><div><p className="eyebrow">START WITH THE WORK</p><h2>Every team has a task<br />that keeps <em>coming back.</em></h2></div><div><p>It might be a handoff, a recurring request, or a chain of steps that interrupts deeper work. The right place to begin is with the people who know that process.</p><a className="quiet-link" href="#approach">See how we work together <span aria-hidden="true">↓</span></a></div></div></section>
-      <section className="approach-section" id="approach"><div className="section-shell"><div className="approach-heading"><div><p className="eyebrow">A PRACTICAL, HUMAN APPROACH</p><h2>Designed with<br /><em>your team.</em></h2></div><p>We start by understanding the workflow, then shape an agent to support it—with people in the right places throughout.</p></div><div className="approach-list"><article><span>01</span><div><h3>Understand the work</h3><p>Talk with your team about the recurring process, handoffs, and decisions.</p></div><span className="approach-end">LISTEN</span></article><article><span>02</span><div><h3>Shape a useful agent</h3><p>Design a custom agent around the process and where human judgment belongs.</p></div><span className="approach-end">DESIGN</span></article><article><span>03</span><div><h3>Learn and refine</h3><p>Review how it fits your work and adjust the approach with your team.</p></div><span className="approach-end">REFINE</span></article></div></div></section>
-      <section className="business-cta"><div className="section-shell business-cta-inner"><p className="eyebrow">A GOOD PLACE TO BEGIN</p><h2>What keeps coming<br />back to your team?</h2><p>Tell us a little about a workflow you’d like to make easier.</p><ButtonLink href="mailto:hello@zeyphra.com?subject=ZEYPHRA%20business%20inquiry" light>Start a conversation</ButtonLink></div></section>
-    </main>
-    <Footer business />
-  </>;
-}
-
 export default function App() {
   const business = window.location.pathname.endsWith('business.html');
   const [betaOpen, setBetaOpen] = useState(false);
-  return <><a className="skip-link" href="#main">Skip to content</a>{business ? <BusinessPage /> : <HomePage onBeta={() => setBetaOpen(true)} />}<BetaDialog open={betaOpen} onClose={() => setBetaOpen(false)} /></>;
+  return <><a className="skip-link" href="#main">Skip to content</a>{business ? <BusinessLanding /> : <HomePage onBeta={() => setBetaOpen(true)} />}<BetaDialog open={betaOpen} onClose={() => setBetaOpen(false)} /></>;
 }
