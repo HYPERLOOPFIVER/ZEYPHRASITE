@@ -14,13 +14,38 @@ function TrialLink({ children = 'Try for ₹49/week', className = '' }) {
 }
 
 function BusinessHeader({ onDemo }) {
-  return <header className="biz-header">
-    <div className="biz-header-inner">
-      <a className="biz-brand" href="/business.html" aria-label="Ello for Business by Zeyphra home"><span>ello</span><small>for business · by zeyphra</small></a>
-      <nav className="biz-nav" aria-label="Main navigation">
-        <a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
+  const [productsOpen, setProductsOpen] = useState(false);
+  const productsRef = useRef(null);
+  const productsTriggerRef = useRef(null);
+
+  useEffect(() => {
+    if (!productsOpen) return undefined;
+    const closeOnOutside = (event) => { if (!productsRef.current?.contains(event.target)) setProductsOpen(false); };
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') { setProductsOpen(false); productsTriggerRef.current?.focus(); }
+    };
+    document.addEventListener('pointerdown', closeOnOutside);
+    window.addEventListener('keydown', closeOnEscape);
+    return () => { document.removeEventListener('pointerdown', closeOnOutside); window.removeEventListener('keydown', closeOnEscape); };
+  }, [productsOpen]);
+
+  return <header className="topbar">
+    <div className="topbar-inner">
+      <a className="brand" href="/" aria-label="ZEYPHRA home">ZEYPHRA</a>
+      <nav className="main-nav" aria-label="Main navigation">
+        <a className="nav-pill" href="/#main">ELLO</a>
+        <a className="nav-pill active" href="/business.html" aria-current="page">BUSINESS</a>
+        <div className="nav-products" ref={productsRef}>
+          <button ref={productsTriggerRef} className={`nav-pill products-trigger ${productsOpen ? 'active' : ''}`} type="button" aria-expanded={productsOpen} aria-controls="business-products-menu" onClick={() => setProductsOpen((isOpen) => !isOpen)}>
+            PRODUCTS <svg aria-hidden="true" viewBox="0 0 12 12"><path d="m2.5 4.5 3.5 3 3.5-3" /></svg>
+          </button>
+          <div className="products-menu" id="business-products-menu" role="group" aria-label="Products" hidden={!productsOpen}>
+            <a href="/#task-showcase-title" onClick={() => setProductsOpen(false)}>Goal-based help <span>↗</span></a>
+            <a href="/#capabilities" onClick={() => setProductsOpen(false)}>Capabilities <span>↗</span></a>
+          </div>
+        </div>
       </nav>
-      <div className="biz-header-actions"><TrialLink className="biz-header-trial" /><button className="biz-button biz-button-quiet" type="button" onClick={onDemo}>Book a free demo</button></div>
+      <a className="nav-cta" href={whatsappUrl('Hi, I want to try Ello for Business. Please help me get started.')} target="_blank" rel="noreferrer">Try for ₹49/week <span aria-hidden="true">↗</span></a>
     </div>
   </header>;
 }
@@ -163,18 +188,19 @@ export default function BusinessLanding() {
           <div className="biz-hero-copy">
             <p className="biz-eyebrow"><span /> ELLO FOR BUSINESS · BY ZEYPHRA</p>
             <h1>You sell.<br /><em>Ello collects.</em></h1>
-            <p className="biz-hero-subline">Your 24/7 AI agent that chases every unpaid invoice on WhatsApp, calls and email, so your team stops chasing money and starts making it.</p>
+            <p className="biz-hero-subline"><strong>Ello is a monthly debtors manager for businesses that sell on credit.</strong> It follows up on every unpaid invoice by WhatsApp, phone and email, remembers what each buyer promised, and picks up again when a promise is missed.</p>
             <div className="biz-hero-actions"><TrialLink /><button className="biz-button biz-button-outline" type="button" onClick={() => setDemoOpen(true)}>Book a free demo <span aria-hidden="true">↗</span></button></div>
             <p className="biz-pain-line"><b>₹20 crore stuck across 200 retailers for two years.</b> Margins too thin for lawyers. Staff wasting hours on fake promises. Defaulters blocking your number. Sound familiar?</p>
             <p className="biz-example-note">A business scenario, not a customer result.</p>
           </div>
-          <div className="biz-hero-visual" role="img" aria-label="Illustrative debtor ledger, showing an example of follow-ups, tracked promises and advocate escalation">
-            <div className="biz-ledger-top"><span>YOUR DEBTORS DESK</span><span className="biz-live-dot">ALWAYS ON</span></div>
-            <div className="biz-ledger-total"><span>ILLUSTRATIVE OUTSTANDING</span><strong>₹20<span>cr</span></strong><small>across 200 retailer accounts</small></div>
-            <div className="biz-ledger-row"><span className="biz-ledger-mark">↗</span><div><b>Follow-ups</b><small>WhatsApp · calls · email</small></div><strong>Every day</strong></div>
-            <div className="biz-ledger-row"><span className="biz-ledger-mark">↻</span><div><b>Promises</b><small>Logged and checked again</small></div><strong>Never lost</strong></div>
-            <div className="biz-ledger-row"><span className="biz-ledger-mark">§</span><div><b>Escalation</b><small>Reviewed with partner advocates</small></div><strong>When needed</strong></div>
-            <div className="biz-ledger-foot"><span>UDHAAR YAAD RAHEGA</span><span>ELLO / BUSINESS</span></div>
+          <div className="biz-hero-visual" aria-label="How Ello manages an unpaid invoice">
+            <div className="biz-ledger-top"><span>HOW ELLO HANDLES AN INVOICE</span><span className="biz-live-dot">EXAMPLE</span></div>
+            <div className="biz-flow-item"><span className="biz-flow-number">1</span><div><small>YOU SHARE</small><b>Your invoice list</b><p>Debtor, amount and due date.</p></div></div>
+            <div className="biz-flow-connector" aria-hidden="true" />
+            <div className="biz-flow-item biz-flow-highlight"><span className="biz-flow-number">2</span><div><small>ELLO FOLLOWS UP</small><b>Every day, across channels</b><p>WhatsApp · phone · email</p></div></div>
+            <div className="biz-flow-connector" aria-hidden="true" />
+            <div className="biz-flow-item"><span className="biz-flow-number">3</span><div><small>ELLO REMEMBERS</small><b>Promises and replies</b><p>Missed promise? The follow-up starts again.</p></div></div>
+            <div className="biz-flow-foot"><strong>One recurring subscription.</strong> All your debtors, old and new.</div>
           </div>
         </div>
       </section>
